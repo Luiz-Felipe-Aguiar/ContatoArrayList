@@ -18,6 +18,9 @@ public class ContatoArrayList {
     public String getEmail() {
         return email;
     }
+    public String getTelefone() {
+        return telefone;
+    }
 
     @Override
     public String toString() {
@@ -94,6 +97,16 @@ class ListaContatos {
         return null;
     }
 
+    // 10. pesquisa por telefone
+    public ContatoArrayList pesquisarPorTelefone(String Telefone) {
+        for (ContatoArrayList contato : contatos) {
+            if (contato.getTelefone().equalsIgnoreCase(Telefone)) {
+                return contato;
+            }
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
         ListaContatos lista = new ListaContatos();
         ContatoArrayList contato1 = new ContatoArrayList("João", "123456789", "joao@example.com");
@@ -125,5 +138,9 @@ class ListaContatos {
         // Teste de pesquisa por e-mail
         ContatoArrayList contatoPesquisadoPorEmail = lista.pesquisarPorEmail("pedro@example.com");
         System.out.println("Contato pesquisado por e-mail 'pedro@example.com': " + contatoPesquisadoPorEmail);
+
+        // Teste de pesquisa por telefone
+        ContatoArrayList contatoPesquisadoPorTelefone = lista.pesquisarPorTelefone("555555555");
+        System.out.println("Contato pesquisado por telefone '555555555': " + contatoPesquisadoPorTelefone);
     }
 }
